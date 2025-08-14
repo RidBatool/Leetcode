@@ -1,0 +1,14 @@
+class Solution(object):
+    def wiggleSort(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None
+        """
+        nums.sort()
+        n = len(nums)
+        half = (n + 1) // 2
+        small = nums[:half][::-1]  # reverse smaller half
+        large = nums[half:][::-1]  # reverse larger half
+
+        nums[::2] = small
+        nums[1::2] = large
